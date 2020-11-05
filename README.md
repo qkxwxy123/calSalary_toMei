@@ -125,3 +125,114 @@ status: 状态码，200表示成功，404表示找不到页面，500表示服务
 msg: 信息
 
 data: 数据
+
+### 获取工作时间 GET
+#### url:"/getWorkTime"
+#### 参数:
+```
+json
+{
+	"workerName": String,
+	"sex": String,
+	"month": String
+}
+```
+#### 说明：
+workerName: 员工姓名
+
+sex: 性别，根据姓名和性别区分人
+
+month: 查询月份
+
+#### 响应：
+```
+json
+{
+	"status": Int,
+	"msg": String,
+	"data":
+	{
+		"hours": String
+	}
+}
+```
+#### 说明：
+hours: 工作时长
+
+### 查询员工信息 GET
+#### url:"/getWorker"
+#### 参数：
+```
+json
+{
+	"name": String,
+	"month": String
+}
+```
+
+#### 响应：
+```
+json
+{
+	"status": Int,
+	"msg": String,
+	"data":
+	{
+		"name": String,
+		"sex": String,
+		"phone": String,
+		"hours": float
+	}
+}
+```
+#### 说明：
+hours: 工作时长
+
+### 添加员工信息 POST
+#### url:"/addWorker"
+#### 参数：
+```
+json
+{
+	"name": String,
+	"sex": String,
+	"phone": String
+}
+```
+
+#### 响应：
+```
+json
+{
+	"status": Int,
+	"msg": String,
+	"data": String
+}
+```
+
+### 添加工作时长 POST
+#### url: "/addWorkTime"
+#### 参数：
+```
+json
+{
+	"name": String,
+	"sex": String,
+	"month": String,
+	"time": float
+}
+```
+#### 说明：
+month: 当前月份
+
+time: 工作时长
+
+####响应：
+```
+json
+{
+	"status": Int,
+	"msg": String,
+	"data": String
+}
+```
